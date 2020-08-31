@@ -9,7 +9,7 @@ if(isset($i)){
 }
 setcookie("comptador",$i);
 
-echo "Hola Món!!!! $i";
+include "view.php";
 
 
 

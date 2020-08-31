@@ -12,18 +12,18 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light fixed-top">
       <a class="navbar-brand">TODO</a>
       <form class="form-inline" action="index.php" method="POST">
         <input class="form-control mr-sm-1" type="text" placeholder="Afegir tasca" aria-label="Afegir">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Afegir</button>
       </form>
     </nav>
-    <div class="container mt-1">
-      <div class="row justify-content-center">
+    <div class="container">
+      <div class="row justify-content-center mt-2">
         <div class="col-md-6">
           <ul class="list-group">
-            <!--<li class="list-group-item">
+            <li class="list-group-item">
               <form action="index.php" method="POST">
                 <div class="row">
                   <div class="col">
@@ -34,7 +34,15 @@
                   </div>
                 </div>
               </form>
-            </li>-->
+            </li>
+                 
+          </ul>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-1">
+        <div class="col-md-6">
+          <ul class="list-group">
             <?php foreach($tasques as $i => $tasca) { ?>
             <li class="list-group-item">
                <div class="d-flex w-100 justify-content-between">

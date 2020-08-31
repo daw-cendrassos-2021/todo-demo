@@ -11,7 +11,36 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <form action="index.php">
+                <div class="row">
+                  <div class="col">
+                    <input type="text" name="tasca" class="form-control" placeholder="Afegir tasca">
+                  </div>
+                  <div class="col">
+                    <input type="submit" class="btn btn-danger" value="Afegir">
+                  </div>
+                </div>
+              </form>
+            </li>
+            <?php foreach($tasques as $tasca) { ?>
+            <li class="list-group-item">
+               <div class="d-flex w-100 justify-content-between">
+                <p class=""><?=$tasca; ?></p>
+                <button type="button" class="btn btn-danger">Feta!</button>
+               </div> 
+            </li>
+          <?php } ?>
+            
+          </ul>
+        </div>
+      </div>
+
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

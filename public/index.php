@@ -1,13 +1,20 @@
 <?php 
 
-$i = $_COOKIE["comptador"];
+$tasquesJson = $_COOKIE["tasques"];
 
-if(isset($i)){
-	$i++;
+if(isset($tasquesJson)){
+	$tasques = json_decode($tasquesJson);
 } else {
-	$i = 0;
+	$tasques= array();
 }
-setcookie("comptador",$i);
+
+$tasca = $_POST["tasca"];
+
+if(isset($tasca)){
+	$tasques[] = $tasca;
+}
+
+setcookie("tasques",$tasques);
 
 include "view.php";
 

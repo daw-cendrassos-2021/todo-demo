@@ -20,7 +20,7 @@
       </form>
     </nav>
     <div class="container">
-      <div class="row justify-content-center mt-5">
+      <div class="row justify-content-center mt-4">
         <div class="col-md-6">
           <ul class="list-group">
             <li class="list-group-item">
@@ -40,7 +40,7 @@
         </div>
       </div>
 
-      <div class="row justify-content-center mt-3">
+      <div class="row justify-content-center mt-2">
         <div class="col-md-6">
           <ul class="list-group">
             <?php foreach($tasques as $i => $tasca) { ?>

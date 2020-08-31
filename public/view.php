@@ -12,7 +12,7 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-light bg-light sticky-top">
       <a class="navbar-brand">TODO</a>
       <form class="form-inline" action="index.php" method="POST">
         <input class="form-control mr-sm-1" type="text" placeholder="Afegir tasca" aria-label="Afegir">

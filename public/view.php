@@ -27,11 +27,11 @@
                 </div>
               </form>
             </li>
-            <?php foreach($tasques as $tasca) { ?>
+            <?php foreach($tasques as $i => $tasca) { ?>
             <li class="list-group-item">
                <div class="d-flex w-100 justify-content-between">
                 <p class=""><?=$tasca; ?></p>
-                <button type="button" class="btn btn-danger">Feta!</button>
+                <a href="index.php?delete=<?=$i?>" class="btn btn-danger">Feta!</a>
                </div> 
             </li>
           <?php } ?>

@@ -9,9 +9,14 @@ if(isset($tasquesJson)){
 }
 
 $tasca = $_POST["tasca"];
+$delete = $_GET["delete"];
 
 if(isset($tasca)){
 	$tasques[] = $tasca;
+}
+
+if(isset($delete)){
+	array_splice ($tasques, $delete, 1);
 }
 
 setcookie("tasques",json_encode($tasques));

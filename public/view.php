@@ -16,7 +16,7 @@
         <div class="col-md-4">
           <ul class="list-group">
             <li class="list-group-item">
-              <form action="index.php">
+              <form action="index.php" method="POST">
                 <div class="row">
                   <div class="col">
                     <input type="text" name="tasca" class="form-control" placeholder="Afegir tasca">

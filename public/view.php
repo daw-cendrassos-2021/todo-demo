@@ -15,15 +15,15 @@
     <nav class="navbar navbar-light bg-light">
       <a class="navbar-brand">TODO</a>
       <form class="form-inline" action="index.php" method="POST">
-        <input class="form-control mr-sm-2" type="text" placeholder="Afegir tasca" aria-label="Afegir">
+        <input class="form-control mr-sm-1" type="text" placeholder="Afegir tasca" aria-label="Afegir">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Afegir</button>
       </form>
     </nav>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
+    <div class="container mt-1">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
           <ul class="list-group">
-            <li class="list-group-item">
+            <!--<li class="list-group-item">
               <form action="index.php" method="POST">
                 <div class="row">
                   <div class="col">
@@ -34,7 +34,7 @@
                   </div>
                 </div>
               </form>
-            </li>
+            </li>-->
             <?php foreach($tasques as $i => $tasca) { ?>
             <li class="list-group-item">
                <div class="d-flex w-100 justify-content-between">

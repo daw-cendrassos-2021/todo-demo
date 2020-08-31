@@ -14,7 +14,7 @@ if(isset($tasca)){
 	$tasques[] = $tasca;
 }
 
-setcookie("tasques",$tasques);
+setcookie("tasques",json_encode($tasques));
 
 include "view.php";
 

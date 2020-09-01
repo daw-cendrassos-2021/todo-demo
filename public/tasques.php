@@ -12,13 +12,6 @@ class tasques {
 
 		if(isset($tasquesJson)){
 			$this->tasques = json_decode($tasquesJson, True);
-			$actives = $this->tasques["actives"];
-			print_r($this->tasques);
-			if(!isset($actives)){
-				$tasques["actives"] = $this->tasques;
-				$tasques["fetes"] = array();
-				$this->tasques = $tasques;
-			}
 		}
 	}
 

@@ -1,25 +1,23 @@
 <?php 
 
-$tasquesJson = $_COOKIE["tasques"];
-
-if(isset($tasquesJson)){
-	$tasques = json_decode($tasquesJson);
-} else {
-	$tasques= array();
-}
+include "tasques.php";
 
 $tasca = $_POST["tasca"];
 $delete = $_GET["delete"];
 
+$model = new tasques;
+
 if(isset($tasca)){
-	$tasques[] = $tasca;
+	$model->afegir($tasca);
 }
 
 if(isset($delete)){
-	array_splice ($tasques, $delete, 1);
+	$model->esborrar($delete);
 }
 
-setcookie("tasques",json_encode($tasques));
+$model->guardar();
+$tasques = $model->llistat();
+
 
 include "view.php";
 

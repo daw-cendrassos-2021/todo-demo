@@ -2,21 +2,30 @@
 
 class tasques {
 	
-	public $tasques = array();
+	public $tasques = array(
+		"actives" => array(),
+		"fetes" => array(),
+	);
 
 	function __construct(){
 		$tasquesJson = $_COOKIE["tasques"];
 
 		if(isset($tasquesJson)){
 			$this->tasques = json_decode($tasquesJson);
+			if(!isset($this->tasques["actives"])){
+				$tasques["actives"] = $this->tasques;
+				$tasques["fetes"] = array();
+				$this->tasques = $tasques;
+			}
 		}
 	}
 
 	function afegir($tasca){
-		$this->tasques[] = $tasca;
+		$this->tasques["actives"][] = $tasca;
 	}
 
 	function esborrar($id){
+		$this->tasques["fetes"][] = $this->tasques["actives"][$id];
 		array_splice ($this->tasques, $id, 1);
 	}
 
@@ -25,6 +34,10 @@ class tasques {
 	}
 
 	function llistat(){
-		return $this->tasques;
+		return $this->tasques["actives"];
+	}
+
+	function llistatFetes(){
+		return $this->tasques["fetes"];
 	}
 }

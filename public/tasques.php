@@ -24,6 +24,11 @@ class tasques {
 		array_splice ($this->tasques["actives"], $id, 1);
 	}
 
+	function restaura($id){
+		$this->tasques["actives"][] = $this->tasques["fetes"][$id];
+		array_splice ($this->tasques["fetes"], $id, 1);
+	}
+
 	function guardar(){
 		setcookie("tasques",json_encode($this->tasques));
 	}

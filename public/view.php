@@ -56,6 +56,24 @@
         </div>
       </div>
 
+
+
+      <div class="row justify-content-center mt-2">
+        <div class="col-md-6">
+          <ul class="list-group">
+            <?php foreach($fetes as $i => $tasca) { ?>
+            <li class="list-group-item">
+               <div class="d-flex w-100 justify-content-between">
+                <p class="stroke"><?=$tasca; ?></p>
+                <a href="index.php?undelete=<?=$i?>" class="btn btn-danger">Restaura</a>
+               </div> 
+            </li>
+          <?php } ?>
+            
+          </ul>
+        </div>
+      </div>
+
     </div>
 
     <!-- Optional JavaScript -->

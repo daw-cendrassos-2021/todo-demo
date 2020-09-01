@@ -11,7 +11,7 @@ class tasques {
 		$tasquesJson = $_COOKIE["tasques"];
 
 		if(isset($tasquesJson)){
-			$this->tasques = json_decode($tasquesJson);
+			$this->tasques = json_decode($tasquesJson, True);
 			$actives = $this->tasques["actives"];
 			if(!isset($actives)){
 				$tasques["actives"] = $this->tasques;

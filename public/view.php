@@ -62,10 +62,10 @@
         <div class="col-md-6">
           <ul class="list-group">
             <?php foreach($fetes as $i => $tasca) { ?>
-            <li class="list-group-item">
+            <li class="list-group-item list-group-item-danger">
                <div class="d-flex w-100 justify-content-between">
-                <p class="stroke"><?=$tasca; ?></p>
-                <a href="index.php?undelete=<?=$i?>" class="btn btn-danger">Restaura</a>
+                <p class=""><del><?=$tasca; ?></del></p>
+                <a href="index.php?undelete=<?=$i?>" class="btn btn-outline-danger">Restaura</a>
                </div> 
             </li>
           <?php } ?>

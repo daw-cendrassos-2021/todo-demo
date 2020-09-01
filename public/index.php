@@ -1,27 +1,38 @@
-<?php 
+<?php
+/**
+    * Gestor de tasques amb cookies.
+    * Exemple per a M07 i M08.
+    * @author: Dani Prados dprados@cendrassos.net
+    *
+    * Permet crear tasques, consultar-les, marcar-les com fetes o recuperar-les.
+    * Per provar com funcionar podeu executar php -S localhost:8000 a la carpeta public.
+    * I amb el navegador visitar la url http://localhost:8000/
+    *
+**/
 
-$tasquesJson = $_COOKIE["tasques"];
-
-if(isset($tasquesJson)){
-	$tasques = json_decode($tasquesJson);
-} else {
-	$tasques= array();
-}
+include "../src/tasques.php";
 
 $tasca = $_POST["tasca"];
 $delete = $_GET["delete"];
+$undelete = $_GET["undelete"];
 
-if(isset($tasca)){
-	$tasques[] = $tasca;
+
+$model = new Daw\Tasques;
+
+if (isset($tasca)) {
+    $model->afegir($tasca);
 }
 
-if(isset($delete)){
-	array_splice ($tasques, $delete, 1);
+if (isset($delete)) {
+    $model->esborrar($delete);
 }
 
-setcookie("tasques",json_encode($tasques));
+if (isset($undelete)) {
+    $model->restaura($undelete);
+}
 
-include "view.php";
+$model->guardar();
+$tasques = $model->llistat();
+$fetes = $model->llistatFetes();
 
-
-
+include "../src/view.php";

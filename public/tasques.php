@@ -21,7 +21,7 @@ class tasques {
 	}
 
 	function guardar(){
-		etcookie("tasques",json_encode($this->tasques));
+		setcookie("tasques",json_encode($this->tasques));
 	}
 
 	function llistat(){

@@ -1,43 +1,50 @@
 <?php 
 
-class tasques {
-	
-	public $tasques = array(
-		"actives" => array(),
-		"fetes" => array(),
-	);
+class tasques
+{
+    public $tasques = array(
+        "actives" => array(),
+        "fetes" => array(),
+    );
 
-	function __construct(){
-		$tasquesJson = $_COOKIE["tasques"];
+    public function __construct()
+    {
+        $tasquesJson = $_COOKIE["tasques"];
 
-		if(isset($tasquesJson)){
-			$this->tasques = json_decode($tasquesJson, True);
-		}
-	}
+        if (isset($tasquesJson)) {
+            $this->tasques = json_decode($tasquesJson, true);
+        }
+    }
 
-	function afegir($tasca){
-		$this->tasques["actives"][] = $tasca;
-	}
+    public function afegir($tasca)
+    {
+        $this->tasques["actives"][] = $tasca;
+    }
 
-	function esborrar($id){
-		$this->tasques["fetes"][] = $this->tasques["actives"][$id];
-		array_splice ($this->tasques["actives"], $id, 1);
-	}
+    public function esborrar($id)
+    {
+        $this->tasques["fetes"][] = $this->tasques["actives"][$id];
+        array_splice($this->tasques["actives"], $id, 1);
+    }
 
-	function restaura($id){
-		$this->tasques["actives"][] = $this->tasques["fetes"][$id];
-		array_splice ($this->tasques["fetes"], $id, 1);
-	}
+    public function restaura($id)
+    {
+        $this->tasques["actives"][] = $this->tasques["fetes"][$id];
+        array_splice($this->tasques["fetes"], $id, 1);
+    }
 
-	function guardar(){
-		setcookie("tasques",json_encode($this->tasques));
-	}
+    public function guardar()
+    {
+        setcookie("tasques", json_encode($this->tasques));
+    }
 
-	function llistat(){
-		return $this->tasques["actives"];
-	}
+    public function llistat()
+    {
+        return $this->tasques["actives"];
+    }
 
-	function llistatFetes(){
-		return $this->tasques["fetes"];
-	}
+    public function llistatFetes()
+    {
+        return $this->tasques["fetes"];
+    }
 }

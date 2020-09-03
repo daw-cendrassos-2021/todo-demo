@@ -43,14 +43,16 @@
       <div class="row justify-content-center mt-2">
         <div class="col-md-6">
           <ul class="list-group">
-            <?php foreach($tasques as $i => $tasca) { ?>
+            <?php foreach ($tasques as $i => $tasca) {
+    ?>
             <li class="list-group-item">
                <div class="d-flex w-100 justify-content-between">
                 <p class=""><?=$tasca; ?></p>
                 <a href="index.php?delete=<?=$i?>" class="btn btn-danger">Feta!</a>
                </div> 
             </li>
-          <?php } ?>
+          <?php
+} ?>
             
           </ul>
         </div>
@@ -61,14 +63,16 @@
       <div class="row justify-content-center mt-2">
         <div class="col-md-6">
           <ul class="list-group">
-            <?php foreach($fetes as $i => $tasca) { ?>
+            <?php foreach ($fetes as $i => $tasca) {
+        ?>
             <li class="list-group-item list-group-item-danger">
                <div class="d-flex w-100 justify-content-between">
                 <p class=""><del><?=$tasca; ?></del></p>
                 <a href="index.php?undelete=<?=$i?>" class="btn btn-outline-danger">Restaura</a>
                </div> 
             </li>
-          <?php } ?>
+          <?php
+    } ?>
             
           </ul>
         </div>

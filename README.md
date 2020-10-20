@@ -9,9 +9,11 @@ M07 - Programació d'aplicacions web - UF1.
 M08 - Programació d'aplicacions web - UF4.
 
 
-La v1 és amb PHP "planer".
-La v2 utilitzem un model simple per gestionar les tasques.
+- La v1 és amb PHP "planer".
+- La v2 utilitzem un model simple per gestionar les tasques.
 
-Per desar la informació estem utilitant una cookie. 
+
+Per desar la informació estem utilitzant una cookie. 
+
 
 Autor: Dani Prados dprados@cendrassos.net

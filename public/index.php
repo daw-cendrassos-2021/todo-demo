@@ -16,7 +16,6 @@ $tasca = $_POST["tasca"];
 $delete = $_GET["delete"];
 $undelete = $_GET["undelete"];
 
-
 $model = new Daw\Tasques;
 
 if (isset($tasca)) {

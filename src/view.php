@@ -51,8 +51,7 @@
                 <a href="index.php?delete=<?=$i?>" class="btn btn-danger">Feta!</a>
                </div> 
             </li>
-          <?php
-} ?>
+            <?php } ?>
             
           </ul>
         </div>
@@ -71,8 +70,7 @@
                 <a href="index.php?undelete=<?=$i?>" class="btn btn-outline-danger">Restaura</a>
                </div> 
             </li>
-          <?php
-    } ?>
+            <?php } ?>
             
           </ul>
         </div>

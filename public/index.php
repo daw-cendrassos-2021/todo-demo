@@ -9,14 +9,14 @@
     * I amb el navegador visitar la url http://localhost:8000/
     *
 **/
-
-include "../src/tasques.php";
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
+include "../src/tasquesSQLite.php";
 
 $tasca = $_POST["tasca"];
 $delete = $_GET["delete"];
 $undelete = $_GET["undelete"];
 
-$model = new Daw\Tasques;
+$model = new Daw\TasquesSQLite();
 
 if (isset($tasca)) {
     $model->afegir($tasca);

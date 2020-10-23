@@ -1,4 +1,5 @@
 <?php
+
 /**
     * Exemple per a M07 i M08.
     * @author: Dani Prados dprados@cendrassos.net
@@ -32,8 +33,7 @@ class Tasques
         "actives" => array(),
         "fetes" => array(),
     );
-
-    /**
+/**
       * __construct:  Crear el model tasques
       *
       * recupera la informació desada a la cookie tasques si existeix
@@ -42,7 +42,6 @@ class Tasques
     public function __construct()
     {
         $tasquesJson = $_COOKIE["tasques"];
-
         if (isset($tasquesJson)) {
             $this->tasques = json_decode($tasquesJson, true);
         }

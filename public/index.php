@@ -9,7 +9,7 @@
     * I amb el navegador visitar la url http://localhost:8000/
     *
 **/
-
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include "../src/tasques.php";
 
 $tasca = $_POST["tasca"];

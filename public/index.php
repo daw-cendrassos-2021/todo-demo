@@ -12,11 +12,11 @@
 **/
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
-include "../src/tasquesMySQLi.php";
+include "../src/tasquesPDO.php";
 $tasca = $_POST["tasca"];
 $delete = $_GET["delete"];
 $undelete = $_GET["undelete"];
-$model = new Daw\tasquesMySQLi();
+$model = new Daw\tasquesPDO();
 if (isset($tasca)) {
     $model->afegir($tasca);
 }

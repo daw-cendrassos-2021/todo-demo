@@ -15,6 +15,7 @@
     <nav class="navbar navbar-light bg-light sticky-top">
       <a class="navbar-brand">Todo APP</a>
       <form class="form-inline" action="index.php" method="POST">
+        <input type="hidden" name="r" value="afegir">
         <input class="form-control mr-sm-1" type="text" placeholder="Afegir tasca" aria-label="Afegir">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Afegir</button>
       </form>
@@ -25,6 +26,7 @@
           <ul class="list-group">
             <li class="list-group-item">
               <form action="index.php" method="POST">
+                <input type="hidden" name="r" value="afegir">
                 <div class="row">
                   <div class="col">
                     <input type="text" name="tasca" class="form-control" placeholder="Afegir tasca">
@@ -48,7 +50,7 @@
             <li class="list-group-item">
                <div class="d-flex w-100 justify-content-between">
                 <p class=""><?=$tasca; ?></p>
-                <a href="index.php?delete=<?=$i?>" class="btn btn-danger">Feta!</a>
+                <a href="index.php?r=esborrar&amp;delete=<?=$i?>" class="btn btn-danger">Feta!</a>
                </div> 
             </li>
             <?php } ?>
@@ -67,7 +69,7 @@
             <li class="list-group-item list-group-item-danger">
                <div class="d-flex w-100 justify-content-between">
                 <p class=""><del><?=$tasca; ?></del></p>
-                <a href="index.php?undelete=<?=$i?>" class="btn btn-outline-danger">Restaura</a>
+                <a href="index.php?r=restaurar&amp;undelete=<?=$i?>" class="btn btn-outline-danger">Restaura</a>
                </div> 
             </li>
             <?php } ?>

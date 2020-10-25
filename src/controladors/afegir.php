@@ -1,0 +1,24 @@
+<?php
+/**
+    * Controlador que gestiona l'acció d'afegir de tasques.
+    * Exemple per a M07 i M08.
+    * @author: Dani Prados dprados@cendrassos.net
+    *
+    * Afegeix una tasca i redirigeix a la portada
+    *
+**/
+
+/**
+  * ctrlEsborrar: Controlador que carrega les tasques i visaulitza la portada
+  *
+  * @param $post array associatiu $_POST.
+  * @param $tasques model que gestiona les tasques.
+  *
+**/
+function ctrlAfegir($post, $tasques)
+{
+    $tasca = $post["tasca"];
+    $tasques->afegir($tasca);
+    $tasques->guardar();
+    header("location: index.php");
+}

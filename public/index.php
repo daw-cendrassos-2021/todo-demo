@@ -12,24 +12,23 @@
 **/
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
-include "../src/tasquesMySQLi.php";
-$tasca = $_POST["tasca"];
-$delete = $_GET["delete"];
-$undelete = $_GET["undelete"];
-$model = new Daw\tasquesMySQLi();
-if (isset($tasca)) {
-    $model->afegir($tasca);
-}
+include "../src/models/tasquesSQLite.php";
 
-if (isset($delete)) {
-    $model->esborrar($delete);
-}
+include "../src/controladors/afegir.php";
+include "../src/controladors/esborrar.php";
+include "../src/controladors/portada.php";
+include "../src/controladors/restaurar.php";
 
-if (isset($undelete)) {
-    $model->restaura($undelete);
-}
+$r = $_REQUEST["r"];
+$model = new Daw\tasquesSQLite();
 
-$model->guardar();
-$tasques = $model->llistat();
-$fetes = $model->llistatFetes();
-include "../src/view.php";
+
+if ($r === "afegir") {
+    ctrlAfegir($_POST, $model);
+} elseif ($r === "esborrar") {
+    ctrlEsborrar($_GET, $model);
+} elseif ($r === "restaurar") {
+    ctrlrestaurar($_GET, $model);
+} else {
+    ctrlPortada($_GET, $model);
+}

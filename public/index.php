@@ -1,4 +1,5 @@
 <?php
+
 /**
     * Gestor de tasques amb cookies.
     * Exemple per a M07 i M08.
@@ -9,15 +10,13 @@
     * I amb el navegador visitar la url http://localhost:8000/
     *
 **/
-error_reporting(E_ERROR | E_WARNING | E_PARSE);
-include "../src/tasquesSQLite.php";
 
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
+include "../src/tasquesMySQLi.php";
 $tasca = $_POST["tasca"];
 $delete = $_GET["delete"];
 $undelete = $_GET["undelete"];
-
-$model = new Daw\TasquesSQLite();
-
+$model = new Daw\tasquesMySQLi();
 if (isset($tasca)) {
     $model->afegir($tasca);
 }
@@ -33,5 +32,4 @@ if (isset($undelete)) {
 $model->guardar();
 $tasques = $model->llistat();
 $fetes = $model->llistatFetes();
-
 include "../src/view.php";

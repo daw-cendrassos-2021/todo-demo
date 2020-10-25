@@ -44,7 +44,7 @@
         <div class="col-md-6">
           <ul class="list-group">
             <?php foreach ($tasques as $i => $tasca) {
-    ?>
+                ?>
             <li class="list-group-item">
                <div class="d-flex w-100 justify-content-between">
                 <p class=""><?=$tasca; ?></p>
@@ -63,7 +63,7 @@
         <div class="col-md-6">
           <ul class="list-group">
             <?php foreach ($fetes as $i => $tasca) {
-        ?>
+                ?>
             <li class="list-group-item list-group-item-danger">
                <div class="d-flex w-100 justify-content-between">
                 <p class=""><del><?=$tasca; ?></del></p>

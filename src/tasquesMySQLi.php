@@ -4,7 +4,7 @@
     * Exemple per a M07 i M08.
     * @author: Dani Prados dprados@cendrassos.net
     *
-    * Model que gestiona les tasques amb SQLite.
+    * Model que gestiona les tasques amb MySQLi.
     *
 **/
 
@@ -17,7 +17,7 @@ namespace Daw;
     * Per guardar, recuperar i gestionar les tasques.
     *
 **/
-class TasquesSQLite
+class TasquesMySqli
 {
 
     private $sql;
@@ -30,15 +30,10 @@ class TasquesSQLite
     **/
     public function __construct()
     {
-        $this->sql = new \SQLite3($this->db);
-        if (! file_exists($this->db)) {
-            die("No s'ha pogut obrir la base de dades");
-        }
-
-        $q = $this->sql->query("SELECT name FROM sqlite_master WHERE type='table' AND name='tasques';");
-        if ($q->fetchArray() === false) {
-            $this->sql->query("CREATE TABLE tasques ( id INTEGER PRIMARY KEY, tasca CHAR(255), borrat INTEGER );");
-            $q = $this->sql->query("insert into tasques (tasca,borrat) values ('Primera tasca', 0);");
+        $this->sql = new \mysqli('localhost', 'tasques', 'daw2020', 'tasques');
+        if ($this->sql->connect_error) {
+            die('Error de Conexión (' . $mysqli->connect_errno . ') '
+                    . $mysqli->connect_error);
         }
     }
 
@@ -50,8 +45,8 @@ class TasquesSQLite
     **/
     public function afegir($tasca)
     {
-        $query = $this->sql->prepare('insert into tasques (tasca,borrat) values (:tasca, 0);');
-        $query->bindValue(':tasca', $tasca, SQLITE3_TEXT);
+        $query = $this->sql->prepare('insert into tasques (tasca,borrat) values (?, 0);');
+        $query->bind_param("s", $tasca);
         $result = $query->execute();
     }
 
@@ -65,8 +60,8 @@ class TasquesSQLite
     **/
     public function esborrar($id)
     {
-        $query = $this->sql->prepare('update tasques set borrat=1 where id=:id;');
-        $query->bindValue(':id', $id, SQLITE3_INTEGER);
+        $query = $this->sql->prepare('update tasques set borrat=1 where id=?;');
+        $query->bind_param('i', $id);
         $result = $query->execute();
     }
 
@@ -80,8 +75,8 @@ class TasquesSQLite
     **/
     public function restaura($id)
     {
-        $query = $this->sql->prepare('update tasques set borrat=0 where id=:id;');
-        $query->bindValue(':id', $id, SQLITE3_INTEGER);
+        $query = $this->sql->prepare('update tasques set borrat=0 where id=?;');
+        $query->bind_param('i', $id);
         $result = $query->execute();
     }
 
@@ -103,7 +98,7 @@ class TasquesSQLite
     {
         $result = $this->sql->query("select id, tasca from tasques where borrat=0;");
         $tasques = array();
-        while ($tasca = $result->fetchArray(SQLITE3_ASSOC)) {
+        while ($tasca = $result->fetch_array(MYSQLI_ASSOC)) {
         //print_r($tasca);
             $tasques[$tasca["id"]] = $tasca["tasca"];
         }
@@ -119,7 +114,7 @@ class TasquesSQLite
     {
         $result = $this->sql->query("select id, tasca from tasques where borrat=1;");
         $tasques = array();
-        while ($tasca = $result->fetchArray(SQLITE3_ASSOC)) {
+        while ($tasca = $result->fetch_array(MYSQLI_ASSOC)) {
             $tasques[$tasca["id"]] = $tasca["tasca"];
         }
         return $tasques;

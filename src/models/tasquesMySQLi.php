@@ -11,29 +11,38 @@
 namespace Daw;
 
 /**
-    * Tasques: model que gestiona les tasques.
-    * @author: Dani Prados dprados@cendrassos.net
-    *
-    * Per guardar, recuperar i gestionar les tasques.
-    *
+* Tasques: model que gestiona les tasques.
+* @author: Dani Prados dprados@cendrassos.net
+*
+* Per guardar, recuperar i gestionar les tasques.
+*
 **/
 class TasquesMySqli
 {
 
     private $sql;
-    private $db = "tasques.sqlite";
-/**
-      * __construct:  Crear el model tasques
-      *
-      * recupera la informació desada a la cookie tasques si existeix
-      *
+
+    /**
+     * __construct:  Crear el model tasques
+     *
+     * Model adaptat per mysqli
+     *
+     * @param array $config paràmetres de configurció del model
+     *
     **/
-    public function __construct()
+    public function __construct($config)
     {
-        $this->sql = new \mysqli('localhost', 'tasques', 'daw2020', 'tasques');
+        $this->sql = new \mysqli(
+            $config["host"],
+            $config["user"],
+            $config["pass"],
+            $config["dbname"]
+        );
         if ($this->sql->connect_error) {
-            die('Error de Conexión (' . $mysqli->connect_errno . ') '
-                    . $mysqli->connect_error);
+            die(
+                'Error de Conexión (' . $this->sql->connect_errno . ') '
+                . $this->sql->connect_error
+            );
         }
     }
 

@@ -22,16 +22,19 @@ class TasquesSQLite
 
     private $sql;
     private $db = "tasques.sqlite";
-/**
-      * __construct:  Crear el model tasques
-      *
-      * recupera la informació desada a la cookie tasques si existeix
-      *
+    /**
+     * __construct:  Crear el model tasques
+     *
+     * Model adaptat per SQLite
+     *
+     * @param array $config paràmetres de configurció del model
+     *
     **/
-    public function __construct()
+    public function __construct($config)
     {
-        $this->sql = new \SQLite3($this->db);
-        if (! file_exists($this->db)) {
+        $db = $config["path"] . $this->db;
+        $this->sql = new \SQLite3($db);
+        if (! file_exists($db)) {
             die("No s'ha pogut obrir la base de dades");
         }
 

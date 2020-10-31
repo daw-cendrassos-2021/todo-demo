@@ -21,18 +21,20 @@ class TasquesPDO
 {
 
     private $sql;
-    private $db = "tasques.sqlite";
-/**
-      * __construct:  Crear el model tasques
-      *
-      * recupera la informació desada a la cookie tasques si existeix
-      *
+
+    /**
+     * __construct:  Crear el model tasques
+     *
+     * Model adaptat per PDO
+     *
+     * @param array $config paràmetres de configurció del model
+     *
     **/
-    public function __construct()
+    public function __construct($config)
     {
-        $dsn = 'mysql:dbname=tasques;host=localhost';
-        $usuari = 'tasques';
-        $clau = 'daw2020';
+        $dsn = "mysql:dbname={$config['dbname']};host={$config['host']}";
+        $usuari = $config['user'];
+        $clau = $config['pass'];
 
         try {
             $this->sql = new \PDO($dsn, $usuari, $clau);

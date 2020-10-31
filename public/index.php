@@ -12,7 +12,7 @@
 **/
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
-include "../src/models/tasquesSQLite.php";
+include "../src/config.php";
 
 include "../src/controladors/afegir.php";
 include "../src/controladors/esborrar.php";
@@ -20,7 +20,7 @@ include "../src/controladors/portada.php";
 include "../src/controladors/restaurar.php";
 
 $r = $_REQUEST["r"];
-$model = new Daw\tasquesSQLite();
+$model = new Daw\tasquesPDO($config["db"]);
 
 
 if ($r === "afegir") {

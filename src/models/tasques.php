@@ -33,15 +33,17 @@ class Tasques
         "actives" => array(),
         "fetes" => array(),
     );
-/**
-      * __construct:  Crear el model tasques
-      *
-      * recupera la informació desada a la cookie tasques si existeix
-      *
+    /**
+     * __construct:  Crear el model tasques
+     *
+     * Model adaptat per COOKIES
+     *
+     * @param array $config paràmetres de configurció del model
+     *
     **/
-    public function __construct()
+    public function __construct($config)
     {
-        $tasquesJson = $_COOKIE["tasques"];
+        $tasquesJson = $_COOKIE[$config["name"]];
         if (isset($tasquesJson)) {
             $this->tasques = json_decode($tasquesJson, true);
         }
@@ -92,7 +94,7 @@ class Tasques
     **/
     public function guardar()
     {
-        setcookie("tasques", json_encode($this->tasques));
+        setcookie($config["name"], json_encode($this->tasques));
     }
 
     /**

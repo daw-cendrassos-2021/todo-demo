@@ -9,6 +9,8 @@ $error = false;
 Primer escollim el model en funció dels paràmetres
 la variable argv té els paràmetres de la línia de comandes.
 */
+
+print_r($argv);
 if (count($argv) > 1) {
     if ($argv[1] == "pdo") {
         $model = new Daw\tasquesPDO($config["db"]);

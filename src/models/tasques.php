@@ -94,7 +94,7 @@ class Tasques
     **/
     public function guardar()
     {
-        setcookie($config["name"], json_encode($this->tasques));
+        setcookie($this->config["name"], json_encode($this->tasques));
     }
 
     /**

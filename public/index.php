@@ -20,7 +20,7 @@ include "../src/controladors/portada.php";
 include "../src/controladors/restaurar.php";
 
 $r = $_REQUEST["r"];
-$model = new Daw\tasquesPDO($config["db"]);
+$model = new Daw\tasquesMysqli($config["db"]);
 
 
 if ($r === "afegir") {
